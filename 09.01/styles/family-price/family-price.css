@@ -1,0 +1,52 @@
+.pricing-table-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+.pricing-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.pricing-table-header {
+    background-color: #d3d3d3;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.pricing-table-content {
+    padding: 15px;
+}
+
+.pricing-table-row {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+   text-align: center;
+}
+
+.pricing-table-row:last-child {
+    border-bottom: none;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #333;
+}
+
+.hours {
+   font-weight: bold;
+    color: #333;
+}
+
+.shoots {
+    font-weight: bold;
+    color: #333;
+}

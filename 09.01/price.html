@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Crafted</title>
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/index/header.css">
+  <link rel="stylesheet" href="styles/index/basis.css">
+  <link rel="stylesheet" href="styles/index/footer.css">
+  <link rel="stylesheet" href="styles/price/price.css">
+  <script src="styles/index/button-back-up.js" defer></script>
+
+  <script src="styles/index/footer-email-send.js" defer></script>
+
+  <script src="styles/index/price.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body class="body-price">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+
+    <div class="header">
+        <div class="left-section">
+        <div class="dropdown">
+            <button class="dropbtn">&#x25BC; Портфолио</button>
+            <div class="dropdown-content">
+            <a href="">Семейни фотосесии</a>
+            <a href="#">Детска радост</a>
+            <a href="#">Лимитирани</a>
+            </div>
+        </div>
+
+        <div class="dropdown2">
+            <button class="dropbtn2">&#x25BC; Цени/Сесии</button>
+            <div class="dropdown-content2">
+            <a href="price.html">Запазване</a>
+            <a class="family-price" href="family-price.html">Семейни</a>
+            <a href="#">Детска радост</a>
+            </div>
+        </div>
+
+        <p class="condition"><a class="condition-decoration" href="conditions.html">Условия</a></p>
+        </div>
+        <div class="middle-section">
+        <p class="logo"><a class="logo-decoration" href="index.html">Dream Crafted</a><p>
+        </div>
+        <div class="right-section">
+        <p class="contact"><a class="contact-decoration" href="contact.html">Контакти</a></p>
+        <p class="about-us"><a class="about-us-decoration" href="about-us.html">За нас</a></p>
+
+        <div class="icons">
+            <ion-icon class="logo-instagram" name="logo-instagram"></ion-icon>
+            <ion-icon class="logo-tiktok" name="logo-tiktok"></ion-icon>
+            <a href="i_and_r/register.html"><ion-icon class="logo-register" name="person-circle-outline"></ion-icon></a>
+        </div>
+        </div>
+    </div>
+
+    <div class="basis">
+        <p class="title">
+            Резервация
+        </p>
+
+        <form id="reservationForm">
+            <label for="name">Име:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+    
+            <label for="time">Час:</label>
+            <select id="time" name="time" required>
+                <option value="9:00">9:00</option>
+                <option value="11:00">11:00</option>
+                <option value="13:00">13:00</option>
+                <option value="15:00">15:00</option>
+                <option value="17:00">17:00</option>
+            </select>
+    
+            <label for="sessionType">Тип фотосесия:</label>
+            <select id="sessionType" required>
+                <option value="Семейни">Семейни</option>
+                <option value="Детска радост">Детска радост</option>
+            </select>
+
+            <label for="email">Имейл:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <button class="submit-reservation" type="submit">Изпрати</button>
+        </form>
+        <div id="toast"></div>
+    </div>
+</body>
+</html>
