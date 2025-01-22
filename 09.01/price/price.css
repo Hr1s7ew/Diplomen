@@ -1,0 +1,57 @@
+form {
+    max-width: 400px;
+    margin: auto;
+}
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+input, select, .submit-reservation {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.submit-reservation {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.submit-reservation:hover {
+    background-color: #45a049;
+}
+
+/* Toast Notification Styles */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 350px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    position: fixed;
+    z-index: 1;
+    bottom: 30px; /* Отстояние от долния край */
+    right: 30px; /* Отстояние от десния край */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Скрито по подразбиране */
+    transition: opacity 0.5s ease-in-out;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1; /* Плавно показване */
+    animation: fadeInOut 4s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
