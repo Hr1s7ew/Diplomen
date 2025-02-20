@@ -1,0 +1,11 @@
+.condition2,
+.condition-decoration2 {
+    display: flex;
+    color: #259e7c;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px #c9c9c9;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
