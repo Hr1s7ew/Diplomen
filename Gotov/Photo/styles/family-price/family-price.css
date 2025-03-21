@@ -1,0 +1,136 @@
+.pricing-table-container {
+    display: flex;
+    z-index:-2;
+    justify-content: center;
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+.pricing-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.pricing-table-header {
+    background-color: #d3d3d3;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.pricing-table-content {
+    padding: 15px;
+}
+
+.pricing-table-row {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.pricing-table-row:last-child {
+    border-bottom: none;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #333;
+}
+
+.hours {
+   font-weight: bold;
+    color: #333;
+}
+
+.shoots {
+    font-weight: bold;
+    color: #333;
+}
+
+.container {
+    position: relative;
+    }
+  
+  .discount-tag {
+    display: none;
+    background-color: #ff2f00; 
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    position: absolute;
+    top: 10px;
+    right: 120px;
+    border-radius: 5px;
+    z-index: -1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: rotate(25deg);
+  }
+  
+  .discount-text {
+    font-weight: bold;
+  }
+
+  .discount-tag2 {
+    display: none;
+    background-color: #ff2f00; 
+    color: white;
+    padding: 10px 20px;
+    font-size: 13px;
+    position: absolute;
+    top: 10px;
+    left: 560px;
+    border-radius: 5px;
+    z-index: -1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: rotate(25deg);
+}
+
+@media (max-width: 768px) {
+    .pricing-table {
+        width: 90%; /* За екрани до 768px, всяка таблица ще заема 90% от ширината на контейнера */
+    }
+
+    .pricing-table-container {
+        flex-direction: column; /* При малък екран елементите ще бъдат подредени вертикално */
+        gap: 20px; /* Разстояние между елементите */
+    }
+
+    .discount-tag {
+        top:0;
+        right: -25px; /* Позицията на таговете ще се променя спрямо размера на екрана */
+    }
+
+    .discount-tag2 {
+        left:0;
+        margin-left: -25px;
+        top:450px;
+        transform: rotate(-25deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-table {
+        width: 100%; /* За екрани до 480px всяка таблица ще заема 100% от ширината на контейнера */
+    }
+
+    .discount-tag {
+        font-size: 11px; /* Намаляване на шрифта при малки екрани */
+        padding: 8px 16px; /* Намаляване на padding */
+        top: -5px; /* Позицията на таговете ще се променя за по-малки екрани */
+        right: -25px;
+    }
+
+    .discount-tag2 {
+        font-size: 11px;
+        padding: 8px 16px;
+        left:0;
+        margin-left: -25px;
+        top:450px;
+        transform: rotate(-25deg);
+    }
+}

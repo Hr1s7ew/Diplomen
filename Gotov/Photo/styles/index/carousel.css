@@ -1,0 +1,128 @@
+/* Основен стил за карусела */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0; /* Нулираме марджина */
+    padding: 0; /* Нулираме падинга */
+}
+
+/* Контейнер за снимките */
+.carousel-inner {
+    display: flex;
+    width: 400%; /* За 4 изображения */
+    animation: slide 13s infinite;
+}
+
+/* Всеки елемент от карусела */
+.carousel-item {
+    width: 25%;
+    position: relative;
+    overflow: hidden;
+    height: 80vh; /* Увеличена височина до 80% от видимата височина на екрана */
+}
+
+/* Снимките */
+.carousel-item img {
+    width: 100%; /* Запазваме разтягането до краищата */
+    height: 100%; /* Запълване на контейнера */
+    object-fit: cover; /* Запазва пропорциите без изкривяване */
+    display: block;
+}
+
+/* Контейнер за бутона */
+.button-container {
+    position: absolute;
+    bottom: 25px; /* Разстояние от долния край */
+    left: 50%;
+    transform: translateX(-50%); /* Центриране хоризонтално */
+}
+
+/* Стил за бутона */
+.carousel-button {
+    padding: 15px 25px;
+    font-size: 20px;
+    background-color: rgba(128, 128, 128, 0.5); /* Прозрачно сив фон */
+    color: white; /* Бял текст */
+    text-decoration: none;
+    border-radius: 5px; /* Закръглени ръбове */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лека сянка */
+    transition: all 0.3s ease; /* Плавен преход за hover ефекта */
+}
+
+/* Hover ефект */
+.carousel-button:hover {
+    background-color: rgba(75, 75, 75, 0.7); /* Син полупрозрачен фон */
+    color: #fff; /* Бял текст */
+    transform: translateX(-50%) scale(1.05); /* Леко уголемяване */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* По-дълбока сянка */
+}
+
+/* Анимация за карусела */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(0); }
+    33.33% { transform: translateX(-25%); }
+    58.33% { transform: translateX(-25%); }
+    66.66% { transform: translateX(-50%); }
+    91.66% { transform: translateX(-50%); }
+    99.99% { transform: translateX(-75%); }
+    100% { transform: translateX(0); }
+}
+
+/* Респонсив дизайн за различни размери на екрана */
+
+/* Малки екрани (до 480px - мобилни устройства) */
+@media (max-width: 480px) {
+    .carousel {
+        margin-top: 0 !important; /* Нулираме горния марджин */
+        position: relative;
+        top: 0; /* Уверете се, че е прилепен до горната част */
+    }
+    .carousel-item {
+        height: 50vh;
+    }
+    .carousel-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    .button-container {
+        bottom: 15px; /* Намаляваме разстоянието от долния край */
+    }
+}
+
+/* Средни екрани (481px - 767px - по-големи мобилни устройства и малки таблети) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .carousel {
+        margin-top: 0 !important; /* Нулираме горния марджин */
+    }
+    .carousel-item {
+        height: 55vh;
+    }
+    .carousel-button {
+        padding: 11px 18px;
+        font-size: 17px;
+    }
+}
+
+/* Таблети (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .carousel-item {
+        height: 70vh;
+    }
+    .carousel-button {
+        padding: 13px 20px;
+        font-size: 18px;
+    }
+}
+
+/* Големи екрани (над 1024px - настолни компютри) */
+@media (min-width: 1025px) {
+    .carousel-item {
+        height: 80vh;
+    }
+    .carousel-button {
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+}
