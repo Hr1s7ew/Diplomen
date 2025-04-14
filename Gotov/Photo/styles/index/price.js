@@ -247,6 +247,7 @@ document.getElementById('submitButton').addEventListener('click', async function
         paymentMethod,
         price,
         discountMessage,
+        hcaptchaResponse
     };
 
     if (paymentMethod === 'cash') {
