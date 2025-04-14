@@ -61,7 +61,7 @@ async function updateAvailableTimes(selectedDate) {
     const currentTime = new Date();
 
     try {
-        const response = await fetch('/get-reserved-times', {
+        const response = await fetch('https://diplomen-production.up.railway.app/get-reserved-times', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -250,7 +250,7 @@ document.getElementById('submitButton').addEventListener('click', async function
     };
 
     if (paymentMethod === 'cash') {
-        const response = await fetch('/reserve', {
+        const response = await fetch('https://diplomen-production.up.railway.app/reserve', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(reservationData),
@@ -272,7 +272,7 @@ document.getElementById('submitButton').addEventListener('click', async function
     
         if (paymentSuccess) {
             // Ако плащането е минало успешно, правиш резервацията
-            const response = await fetch('/reserve', {
+            const response = await fetch('https://diplomen-production.up.railway.app/reserve', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(reservationData),
@@ -335,7 +335,7 @@ async function handlePayment(price, reservationData, hcaptchaResponse) {
             return false;
         }
 
-        const response = await fetch('/create-payment-intent', {
+        const response = await fetch('https://diplomen-production.up.railway.app/create-payment-intent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ price }),
