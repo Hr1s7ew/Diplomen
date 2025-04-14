@@ -14,7 +14,7 @@ app.use(cors());
 let reservedTimes = {};
 
 // Резервация + изпращане на имейли
-app.post('/reserve', async (req, res) => {
+app.post('https://diplomen-production.up.railway.app/reserve', async (req, res) => {
     const { email, name, date, time, sessionType, sessionSize, paymentMethod, price, discountMessage } = req.body;
 
     // Проверяваме дали има резервирани часове за тази дата
@@ -107,13 +107,13 @@ app.post('/reserve', async (req, res) => {
 });
 
 // GET endpoint за получаване на резервираните часове
-app.get('/get-reserved-times', (req, res) => {
+app.get('https://diplomen-production.up.railway.app/get-reserved-times', (req, res) => {
     res.status(200).json(reservedTimes);
 });
 
 
 // Създаване на Stripe PaymentIntent
-app.post('/create-payment-intent', async (req, res) => {
+app.post('https://diplomen-production.up.railway.app/create-payment-intent', async (req, res) => {
     const { price } = req.body;
     console.log("Получена стойност за price:", price); // Лог за стойността на price
 
@@ -146,7 +146,7 @@ app.post('/create-payment-intent', async (req, res) => {
 });
 
 // Верификация на hCaptcha
-app.post('/verify-hcaptcha', async (req, res) => {
+app.post('https://diplomen-production.up.railway.app/verify-hcaptcha', async (req, res) => {
     const { hcaptchaResponse } = req.body;
 
     try {
@@ -173,7 +173,7 @@ app.post('/verify-hcaptcha', async (req, res) => {
 
 const apiKey = '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';
 
-app.post('/subscribe', async (req, res) => {
+app.post('https://diplomen-production.up.railway.app/subscribe', async (req, res) => {
     const { email } = req.body;
     console.log('Получена заявка за абонамент:', req.body);
 
