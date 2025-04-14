@@ -336,6 +336,13 @@ async function handlePayment(price, reservationData, hcaptchaResponse) {
             return false;
         }
 
+        const hcaptchaResponse = hcaptcha.getResponse();
+
+        if (!hcaptchaResponse) {
+            showToast('Моля, потвърдете, че не сте робот.', 'error');
+            return;
+        }
+
         const response = await fetch('https://diplomen-production.up.railway.app/create-payment-intent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
