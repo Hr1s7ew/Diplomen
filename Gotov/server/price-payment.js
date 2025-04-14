@@ -256,3 +256,5 @@ function validateEmail(email) {
 app.listen(port, () => {
     console.log(`Сървърът работи на порт ${port}`);
 });
+
+const port = process.env.PORT || 1234;
