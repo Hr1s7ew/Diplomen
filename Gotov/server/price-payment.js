@@ -17,6 +17,8 @@ let reservedTimes = {};
 app.post('/reserve', async (req, res) => {
     const { email, name, date, time, sessionType, sessionSize, paymentMethod, price, discountMessage } = req.body;
 
+    console.log('🔔 POST /reserve получи:', req.body);
+
     // Проверяваме дали има резервирани часове за тази дата
     if (!reservedTimes[date]) {
         reservedTimes[date] = [];
