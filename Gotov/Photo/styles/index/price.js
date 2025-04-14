@@ -272,7 +272,7 @@ document.getElementById('submitButton').addEventListener('click', async function
     
         if (paymentSuccess) {
             // Ако плащането е минало успешно, правиш резервацията
-            const response = await fetch('https://diplomen-production.up.railway.app/reserve', {
+            const response = await fetch('/reserve', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(reservationData),
