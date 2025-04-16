@@ -17,9 +17,6 @@ let reservedTimes = {};
 app.post('/reserve', async (req, res) => {
     const { email, name, date, time, sessionType, sessionSize, paymentMethod, price, discountMessage } = req.body;
 
-     console.log("🎯 POST /reserve получи:");
-    console.log(req.body); // <--- ВАЖНО!
-
     // Проверяваме дали има резервирани часове за тази дата
     if (!reservedTimes[date]) {
         reservedTimes[date] = [];
@@ -157,7 +154,7 @@ app.post('/verify-hcaptcha', async (req, res) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams({
-                secret: 'ES_5746b88b07cc466e858d75a94899b68b',
+                secret: '5746b88b07cc466e858d75a94899b68b',
                 response: hcaptchaResponse,
             }),
         });
