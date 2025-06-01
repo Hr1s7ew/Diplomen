@@ -21,7 +21,7 @@ let reservationsForReminder = [];
 // Резервация + изпращане на имейли
 app.post('/reserve', async (req, res) => {
     const { email, name, date, time, sessionType, sessionSize, paymentMethod, price, discountMessage,
-          reminderIntervalMinutes = 2 } = req.body;
+          reminderIntervalMinutes = 4320 } = req.body;
 
     console.log('POST /reserve body:', req.body); // 👈 това е важно
 
