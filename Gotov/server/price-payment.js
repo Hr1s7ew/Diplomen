@@ -17,12 +17,26 @@ app.options('*', cors());
 
 let reservedTimes = {};
 
+let reservationsForReminder = [];
 // Резервация + изпращане на имейли
 app.post('/reserve', async (req, res) => {
-    const { email, name, date, time, sessionType, sessionSize, paymentMethod, price, discountMessage } = req.body;
+    const { email, name, date, time, sessionType, sessionSize, paymentMethod, price, discountMessage,
+          reminderIntervalMinutes = 2 } = req.body;
 
     console.log('POST /reserve body:', req.body); // 👈 това е важно
 
+    const reservationDateTime = new Date(`${date}T${time}`);
+
+    // Записваме резервация с настройки за напомняния
+    reservationsForReminder.push({
+      email, name, date, time, sessionType,
+      sessionSize, paymentMethod, price,
+      discountMessage,
+      reservationDateTime,
+      reminderIntervalMinutes,
+      lastReminderSent: null
+    });
+  
     // Проверяваме дали има резервирани часове за тази дата
     if (!reservedTimes[date]) {
         reservedTimes[date] = [];
@@ -110,6 +124,56 @@ app.post('/reserve', async (req, res) => {
         console.error(error.response ? error.response.data : error.message);
         res.status(500).json({ message: 'Грешка при изпращане на имейл', error: error.response ? error.response.data : error.message });
     }
+
+    setInterval(() => {
+    const now = new Date();
+  
+    reservationsForReminder.forEach(async (resv) => {
+      const timeUntilReservation = resv.reservationDateTime - now;
+  
+      // НЕ изпращаме след като е минала датата
+      if (timeUntilReservation < 0) return;
+  
+      // Изчисляваме дали е минал интервалът
+      const shouldSend =
+        !resv.lastReminderSent ||
+        now - resv.lastReminderSent >= resv.reminderIntervalMinutes * 60 * 1000;
+  
+      if (shouldSend) {
+        const reminderMessage = {
+          sender: { email: 'dimitarhristev20b@gmail.com' },
+          to: [{ email: resv.email }],
+          subject: '📸 Напомняне за Вашата фотосесия',
+          htmlContent: `
+            <html>
+              <body>
+                <h1>Напомняне за резервация</h1>
+                <p>Здравейте, ${resv.name},</p>
+                <p>Напомняме Ви, че имате резервация на <strong>${resv.date}</strong> в <strong>${resv.time}</strong>.</p>
+                <p>Тип сесия: ${resv.sessionType} – ${resv.sessionSize}</p>
+                <p>Цена: ${resv.price} лв</p>
+              </body>
+            </html>
+          `
+        };
+  
+        try {
+          await axios.post('https://api.brevo.com/v3/smtp/email', reminderMessage, {
+            headers: {
+              'Content-Type': 'application/json',
+              'api-key': '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'
+            }
+          });
+  
+          console.log(`✅ Изпратено напомняне на ${resv.email}`);
+          resv.lastReminderSent = new Date(); // обновяване
+        } catch (error) {
+          console.error(`❌ Грешка при напомнянето:`, error.message);
+        }
+      }
+    });
+  }, 60 * 1000); // проверка всяка минута
+
 });
 
 // GET endpoint за получаване на резервираните часове
