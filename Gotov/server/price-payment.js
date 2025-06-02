@@ -103,7 +103,7 @@ app.post('/reserve', async (req, res) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'api-key': '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'
+                    'api-key': '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'
                 }
             }
         );
@@ -114,7 +114,7 @@ app.post('/reserve', async (req, res) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'api-key': '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'
+                    'api-key': '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'
                 }
             }
         );
@@ -161,7 +161,7 @@ app.post('/reserve', async (req, res) => {
           await axios.post('https://api.brevo.com/v3/smtp/email', reminderMessage, {
             headers: {
               'Content-Type': 'application/json',
-              'api-key': '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'
+              'api-key': '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'
             }
           });
   
@@ -241,7 +241,7 @@ app.post('/verify-hcaptcha', async (req, res) => {
     }
 });
 
-const apiKey = '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';
+const apiKey = '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';
 
 app.post('/subscribe', async (req, res) => {
     const { email } = req.body;
@@ -289,7 +289,7 @@ app.post('/subscribe', async (req, res) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'api-key': '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'
+                'api-key': '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'
             },
             body: JSON.stringify(adminMessage)
         });
@@ -299,7 +299,7 @@ app.post('/subscribe', async (req, res) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'api-key': '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'
+                'api-key': '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'
             },
             body: JSON.stringify(userMessageForUser)
         });
